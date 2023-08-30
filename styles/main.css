@@ -1,0 +1,44 @@
+h1, h2 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 0px;
+    padding: 0;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+button {
+    font-size: 1.1em;
+    font-family: inherit;
+    color: white;
+    background-color: #1a5659;
+    margin-bottom: 50px;
+    padding: 10px;
+    border: solid 1px gray;
+}
+
+select {
+    font-family: inherit;
+    margin-top: 20px;
+}
+
+.options {
+    background-color: #f5f5dc;
+    border: 1px dashed #1a5659;
+    border-radius: 8px;
+    margin: 30px;
+    padding: 30px;
+}
+
+.choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.order {
+    background-color: f0f8ff;
+    border: 1px dashed #c7e0e7;
+
+}
+
