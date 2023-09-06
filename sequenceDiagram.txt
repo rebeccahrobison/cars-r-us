@@ -1,0 +1,82 @@
+title Cars-R-Us
+
+participant User Event
+participant database.json
+participant main.js
+participant Paints.js
+participant Interiors.js
+participant Wheels.js
+participant Technologies.js
+participant TransientState.js
+participant Orders.js
+participant OrdersList.js
+participant PlaceOrder.js
+
+
+main.js->Paints.js:Asks for Paint html
+Paints.js->database.json:Fetches paints array async
+Paints.js<--database.json:Sends back paints array await
+box over Paints.js:Uses .map to create html from \neach item in array
+main.js<--Paints.js:Sends back Paint html
+
+-------
+
+main.js->Interiors.js:Asks for Interior html
+Interiors.js->database.json:Fetches interiors array async
+Interiors.js<--database.json:Sends back interiors array await
+box over Interiors.js:Uses .map to create html from \neach item in array
+main.js<--Interiors.js:Sends back Interior html
+
+-------
+
+main.js->Wheels.js:Asks for Wheel html
+Wheels.js->database.json:Fetches wheels array async
+Wheels.js<--database.json:Sends back wheels array await
+box over Wheels.js:Uses .map to create html from \neach item in array
+main.js<--Wheels.js:Sends back Wheel html
+
+-------
+
+main.js->Technologies.js:Asks for Technology html
+Technologies.js->database.json:Fetches technologies array async
+Technologies.js<--database.json:Sends back technologies array await
+box over Technologies.js:Uses .map to create html from \neach item in array
+main.js<--Technologies.js:Sends back Technology html
+
+-------
+
+main.js->PlaceOrder.js:Asks for button html
+main.js<--PlaceOrder.js:Returns button html
+
+-------
+
+main.js->Orders.js:Asks for Orders html
+Orders.js->database.json:Fetches orders array async
+Orders.js<--database.json:Sends back order array await
+box over Orders.js:Uses .map to create html from \neach item in array
+main.js<--Orders.js:Sends back Technology html
+
+-------
+
+User Event->Paints.js:When user changes drop down menu choice...
+Paints.js->TransientState.js:Asks to run setPaintChoice function with \nselected menu item as parameter
+
+User Event->Interiors.js:When user changes drop down menu choice...
+Interiors.js->TransientState.js:Asks to run setInteriorChoice function with \nselected menu item as parameter
+
+User Event->Wheels.js:When user changes drop down menu choice...
+Wheels.js->TransientState.js:Asks to run setWheelChoice function with \nselected menu item as parameter
+
+User Event->Technologies.js:When user changes drop down menu choice...
+Technologies.js->TransientState.js:Asks to run setTechnologyChoice function with \nselected menu item as parameter
+
+-------
+
+User Event->PlaceOrder.js:When user clicks button...
+PlaceOrder.js->TransientState.js:Asks to run placeOrder function
+TransientState.js->database.json:Posts current transientState object to database
+TransientState.js<--main.js:Custom event re-renders html
+
+-------
+
+
