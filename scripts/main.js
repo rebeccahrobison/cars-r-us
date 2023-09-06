@@ -17,7 +17,7 @@ const render = async () => {
     const ordersHTML = await Orders()
 
     const composedHTML = `
-        <h1>Cars-R-Us: Personal Car Builder</h1>
+        <h1>Cars-'R-Us: Personal Car Builder</h1>
             <article class="choices">
                 <section class="choices__paints options">
                     <h2>Paints</h2>
@@ -40,7 +40,7 @@ const render = async () => {
                 </section>
             </article>
 
-            <article class="order">
+            <article class="orderButton">
                 ${buttonHTML}
             </article>
 

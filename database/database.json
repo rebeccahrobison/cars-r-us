@@ -124,10 +124,10 @@
       "id": 5
     },
     {
-      "paintId": 0,
-      "interiorId": 0,
-      "wheelId": 0,
-      "technologyId": 0,
+      "paintId": 4,
+      "interiorId": 3,
+      "wheelId": 3,
+      "technologyId": 4,
       "id": 6
     }
   ]

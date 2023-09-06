@@ -9,7 +9,12 @@ export const Orders = async () => {
                                order.interior.price + 
                                order.wheel.price + 
                                order.technology.price
-            return `<div>Order #${order.id} costs ${parseFloat(orderPrice).toFixed(2)}</div>`
+            return `<div class="order">${order.paint.color} car with 
+                         ${order.wheel.option} wheels, 
+                         ${order.interior.type} interior, and the
+                         ${order.technology.option} for a total cost of
+                         $${parseFloat(orderPrice).toFixed(2)}
+                    </div>`
         }
     )
 
