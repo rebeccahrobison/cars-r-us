@@ -1,14 +1,15 @@
 export const Orders = async () => {
-    const fetchResponse = await fetch("http://localhost:8088/orders?_expand=paint&_expand=technology&_expand=wheel&_expand=interior")
+    const fetchResponse = await fetch("http://localhost:8088/orders?_expand=paint&_expand=technology&_expand=wheel&_expand=interior&_expand=vehicle")
     const orders = await fetchResponse.json()
 
     let ordersHTML = `<section class="orders">`
     const divStringArray = orders.map(
         (order) => {
-            const orderPrice = order.paint.price + 
+            const orderPrice = (order.vehicle.multiplier) *
+                               (order.paint.price + 
                                order.interior.price + 
                                order.wheel.price + 
-                               order.technology.price
+                               order.technology.price)
             return `<div class="order">${order.paint.color} car with 
                          ${order.wheel.option} wheels, 
                          ${order.interior.type} interior, and the
