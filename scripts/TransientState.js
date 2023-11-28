@@ -3,7 +3,7 @@ const transientState = {
     interiorId: 0,
     wheelId: 0,
     technologyId: 0,
-    vehicleId: 0
+    // vehicleId: 0
 }
 
 export const setPaintChoice = (chosenPaint) => {
@@ -40,7 +40,7 @@ export const placeOrder = async () => {
         body: JSON.stringify(transientState)
     }
 
-    const response = await (fetch("http://localhost:8088/orders", postOptions))
+    const response = await (fetch("https://localhost:7203/orders", postOptions))
 
     const customEvent = new CustomEvent("newOrderCreated")
     document.dispatchEvent(customEvent)

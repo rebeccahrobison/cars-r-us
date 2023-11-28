@@ -3,18 +3,18 @@ import { Orders } from "./Orders.js"
 import { PaintOptions } from "./Paints.js"
 import { PlaceOrderButton } from "./PlaceOrder.js"
 import { TechnologyOptions } from "./Technologies.js"
-import { VehiclesOptions } from "./Vehicles.js"
+// import { VehiclesOptions } from "./Vehicles.js"
 import { WheelOptions } from "./Wheels.js"
 
 
 const container = document.querySelector("#container")
 
 const render = async () => {
-    const paintsHTML = await PaintOptions()
+    const paintsHTML= await PaintOptions()
     const interiorsHTML = await InteriorOptions()
     const wheelsHTML = await WheelOptions()
     const technologiesHTML = await TechnologyOptions()
-    const vehiclesHTML = await VehiclesOptions()
+    // const vehiclesHTML = await VehiclesOptions()
     const buttonHTML = PlaceOrderButton()
     const ordersHTML = await Orders()
 
@@ -41,20 +41,18 @@ const render = async () => {
                     ${technologiesHTML}
                 </section>
 
-                <section class="choices__vehicles options">
-                    <h2>Vehicle Types</h2>
-                    ${vehiclesHTML}
-                </section>
+                
             </article>
 
             <article class="orderButton">
                 ${buttonHTML}
             </article>
 
-            <article class="customOrders">
+                <article class="customOrders">
                 <h2>Custom Car Orders</h2>
                 ${ordersHTML}
             </article>
+
         `
 
         container.innerHTML = composedHTML
@@ -64,4 +62,15 @@ document.addEventListener("newOrderCreated", event => {
     render()
 })
 
+document.addEventListener("stateChanged", event => {
+    render()
+})
+
 render()
+
+
+{/* <section class="choices__vehicles options">
+                    <h2>Vehicle Types</h2>
+                    ${vehiclesHTML}
+                </section> */}
+

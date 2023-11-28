@@ -8,7 +8,7 @@ const handleWheelChoice = (event) => {
 
 
 export const WheelOptions = async () => {
-    const response = await fetch("http://localhost:8088/wheels")
+    const response = await fetch("https://localhost:7203/wheels")
     const wheels = await response.json()
 
     document.addEventListener("change", handleWheelChoice)
@@ -19,7 +19,7 @@ export const WheelOptions = async () => {
     const divStringArray = wheels.map(
         (wheel) => {
             return `<option value="${wheel.id}" id="wheel"
-                >${wheel.option}
+                >${wheel.style}
                 </option>`
         }
     )

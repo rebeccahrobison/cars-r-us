@@ -9,7 +9,7 @@ const handleTechnologyChoice = (event) => {
 
 
 export const TechnologyOptions = async () => {
-    const response = await fetch("http://localhost:8088/technologies")
+    const response = await fetch("https://localhost:7203/technologies")
     const technologies = await response.json()
 
     document.addEventListener("change", handleTechnologyChoice)
@@ -20,7 +20,7 @@ export const TechnologyOptions = async () => {
     const divStringArray = technologies.map(
         (technology) => {
             return `<option value="${technology.id}" id="technology"
-                >${technology.option}
+                >${technology.package}
                 </option>`
         }
     )

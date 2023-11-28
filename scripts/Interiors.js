@@ -7,7 +7,7 @@ const handleInteriorChoice = (event) => {
 }
 
 export const InteriorOptions = async () => {
-    const response = await fetch("http://localhost:8088/interiors")
+    const response = await fetch("https://localhost:7203/interiors")
     const interiors = await response.json()
 
     document.addEventListener("change", handleInteriorChoice)
@@ -18,7 +18,7 @@ export const InteriorOptions = async () => {
     const divStringArray = interiors.map(
         (interior) => {
             return `<option value="${interior.id}" id="interior"
-                >${interior.type}
+                >${interior.material}
                 </option>`
         }
     )

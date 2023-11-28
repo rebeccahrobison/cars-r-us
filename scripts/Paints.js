@@ -8,7 +8,7 @@ const handlePaintChoice = (event) => {
 
 
 export const PaintOptions = async () => {
-    const response = await fetch("http://localhost:8088/paints")
+    const response = await fetch("https://localhost:7203/paintColors")
     const paints = await response.json()
 
     document.addEventListener("change", handlePaintChoice)
